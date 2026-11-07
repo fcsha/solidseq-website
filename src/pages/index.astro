@@ -1,0 +1,241 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const services = [
+  {
+    title: '定制软件研发',
+    desc: '面向业务量身定制的管理系统、内部工具与业务平台，从需求到上线完整交付。',
+    icon: 'code',
+  },
+  {
+    title: 'Web 应用开发',
+    desc: '高性能官网、后台管理系统与 SaaS 应用，响应式适配桌面与移动端。',
+    icon: 'globe',
+  },
+  {
+    title: '移动应用开发',
+    desc: 'iOS / Android 与跨平台应用开发，覆盖从原型设计到应用上架的完整链路。',
+    icon: 'device',
+  },
+  {
+    title: '系统集成与 API',
+    desc: '打通既有系统与数据孤岛，提供稳定、文档完善的接口与集成方案。',
+    icon: 'plug',
+  },
+  {
+    title: '技术咨询与架构',
+    desc: '技术选型、架构评审与性能优化，帮助团队少走弯路、降低长期成本。',
+    icon: 'compass',
+  },
+  {
+    title: '维护与迭代',
+    desc: '长期陪跑式支持：监控告警、缺陷修复与功能演进，让软件持续保值。',
+    icon: 'loop',
+  },
+];
+
+const icons: Record<string, string> = {
+  code:
+    '<path d="M8 6 3 12l5 6M16 6l5 6-5 6"/>',
+  globe:
+    '<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9S14.5 18.4 12 21c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/>',
+  device:
+    '<rect x="7" y="3" width="10" height="18" rx="2"/><path d="M11 18h2"/>',
+  plug:
+    '<path d="M9 3v5M15 3v5M7 8h10v4a5 5 0 0 1-10 0V8zM12 17v4"/>',
+  compass:
+    '<circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5 5-2z"/>',
+  loop:
+    '<path d="M17 2l4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14M7 22l-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/>',
+};
+
+const steps = [
+  {
+    title: '需求梳理',
+    desc: '深入理解业务目标与使用场景，输出明确的需求范围与优先级。',
+  },
+  {
+    title: '方案设计',
+    desc: '给出技术方案、里程碑计划与透明报价，确认后再启动开发。',
+  },
+  {
+    title: '敏捷开发',
+    desc: '小步快跑、定期演示可运行版本，进度与风险随时可见。',
+  },
+  {
+    title: '交付运维',
+    desc: '验收上线后提供维护与迭代支持，长期保障系统稳定运行。',
+  },
+];
+
+const values = [
+  {
+    title: '工程质量优先',
+    desc: '代码评审、自动化测试与持续集成是团队默认动作。',
+  },
+  {
+    title: '透明沟通',
+    desc: '进度、风险与成本坦诚同步，不做黑盒交付。',
+  },
+  {
+    title: '务实交付',
+    desc: '以可运行的软件说话，围绕真实业务价值排期。',
+  },
+  {
+    title: '长期主义',
+    desc: '为可维护性与演进留出空间，而非一次性的交付物。',
+  },
+];
+---
+
+<Base
+  title="SolidSeq · 软件定制开发团队"
+  description="SolidSeq 是一支专注软件定制开发的工程团队，提供定制软件研发、Web 与移动应用开发、系统集成、技术咨询与长期维护服务。"
+>
+  <Header />
+
+  <main id="top">
+    <!-- 英雄区 -->
+    <section class="hero">
+      <div class="container">
+        <p class="eyebrow">SOLIDSEQ · 软件定制开发团队</p>
+        <h1>把你的想法，<br />交付成<span class="grad">可靠的软件</span></h1>
+        <p class="lead">
+          SolidSeq
+          是一支专注于软件定制的工程团队。从需求梳理到上线运维，我们以工程化的方式，交付真正可用、可维护的软件产品。
+        </p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#services">查看服务</a>
+          <a class="btn btn-ghost" href="#contact">联系我们</a>
+        </div>
+        <p class="pipeline" aria-label="交付流程">
+          <span class="stage">需求</span>
+          <span class="arrow" aria-hidden="true">→</span>
+          <span class="stage">设计</span>
+          <span class="arrow" aria-hidden="true">→</span>
+          <span class="stage">开发</span>
+          <span class="arrow" aria-hidden="true">→</span>
+          <span class="stage">交付</span>
+          <span class="arrow" aria-hidden="true">→</span>
+          <span class="stage">运维</span>
+          <span>全流程一站式定制</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- 服务 -->
+    <section class="block" id="services">
+      <div class="container">
+        <div class="block-head">
+          <p class="kicker">Services</p>
+          <h2>软件定制服务</h2>
+          <p>无论是从零开始的产品，还是存量的系统改造，都能找到合适的合作方式。</p>
+        </div>
+        <div class="grid">
+          {
+            services.map((s) => (
+              <div class="card">
+                <span class="icon" aria-hidden="true">
+                  <svg
+                    width="22"
+                    height="22"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.7"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    set:html={icons[s.icon]}
+                  />
+                </span>
+                <h3>{s.title}</h3>
+                <p>{s.desc}</p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- 流程 -->
+    <section class="block" id="process">
+      <div class="container">
+        <div class="block-head">
+          <p class="kicker">Process</p>
+          <h2>合作流程</h2>
+          <p>清晰、可预期的四步协作方式，每一步都有明确产出物。</p>
+        </div>
+        <div class="steps">
+          {
+            steps.map((s) => (
+              <div class="step">
+                <h3>{s.title}</h3>
+                <p>{s.desc}</p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- 关于 -->
+    <section class="block" id="about">
+      <div class="container">
+        <div class="block-head">
+          <p class="kicker">About</p>
+          <h2>关于 SolidSeq</h2>
+          <p>一支小而精的软件定制开发团队。</p>
+        </div>
+        <div class="about-wrap">
+          <div class="about-text">
+            <p>
+              <strong>SolidSeq</strong> 取名自
+              <strong>Solid（坚实）</strong>与<strong>Sequence（序列）</strong>：我们相信好的软件来自一步步扎实的工程积累，而不是一蹴而就的堆砌。
+            </p>
+            <p>
+              团队专注于软件定制开发，服务过从初创团队到成熟企业的各类客户。我们既写代码，也理解业务——先弄清楚「为什么做」，再决定「怎么做」。
+            </p>
+            <p>如果你需要一个能长期并肩的技术伙伴，欢迎聊聊。</p>
+          </div>
+          <div class="values">
+            {
+              values.map((v) => (
+                <div class="value">
+                  <span class="dot" aria-hidden="true" />
+                  <h3>{v.title}</h3>
+                  <p>{v.desc}</p>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 联系 -->
+    <section class="block" id="contact">
+      <div class="container">
+        <div class="contact-card">
+          <div>
+            <h2>有软件定制的想法？</h2>
+            <p>欢迎带着你的需求或粗略的想法来聊，我们会给出诚实的评估与建议。</p>
+            <p class="hint">也可以直接在 GitHub 上创建 Issue 与我们沟通。</p>
+          </div>
+          <div class="cta-row">
+            <a
+              class="btn btn-primary"
+              href="https://github.com/fcsha"
+              target="_blank"
+              rel="noopener">
+              在 GitHub 上找到我们
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Base>
